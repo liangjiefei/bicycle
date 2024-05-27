@@ -32,15 +32,8 @@ func init() {
 }
 
 func connect(t *testing.T) *Connection {
-	server := os.Getenv("SERVER")
-	if server == "" {
-		t.Fatal("empty server var")
-	}
-	key := os.Getenv("KEY")
-	if server == "" {
-		t.Fatal("empty key var")
-	}
-	c, err := NewConnection(server, key)
+	url := os.Getenv("CONFIG_URL")
+	c, err := NewConnection(url)
 	if err != nil {
 		t.Fatal("connections err: ", err)
 	}

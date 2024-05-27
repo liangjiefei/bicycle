@@ -37,8 +37,7 @@ const (
 )
 
 var Config = struct {
-	LiteServer               string `env:"LITESERVER,required"`
-	LiteServerKey            string `env:"LITESERVER_KEY,required"`
+	LiteConfigUrl            string `env:"LITECONFIGURL,required"`
 	Seed                     string `env:"SEED,required"`
 	DatabaseURI              string `env:"DB_URI,required"`
 	APIHost                  string `env:"API_HOST" envDefault:"0.0.0.0:8081"`

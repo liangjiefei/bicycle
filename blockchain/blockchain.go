@@ -47,13 +47,13 @@ type contract struct {
 }
 
 // NewConnection creates new Blockchain connection
-func NewConnection(addr, key string) (*Connection, error) {
+func NewConnection(confUrl string) (*Connection, error) {
 
 	client := liteclient.NewConnectionPool()
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*20)
 	defer cancel()
 
-	err := client.AddConnection(ctx, addr, key)
+	err := client.AddConnectionsFromConfigUrl(ctx, confUrl)
 	if err != nil {
 		return nil, fmt.Errorf("connection err: %v", err.Error())
 	}

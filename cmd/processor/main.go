@@ -26,7 +26,7 @@ func main() {
 	signal.Notify(sigChannel, os.Interrupt, syscall.SIGTERM)
 	wg := new(sync.WaitGroup)
 
-	bcClient, err := blockchain.NewConnection(config.Config.LiteServer, config.Config.LiteServerKey)
+	bcClient, err := blockchain.NewConnection(config.Config.LiteConfigUrl)
 	if err != nil {
 		log.Fatalf("blockchain connection error: %v", err)
 	}
