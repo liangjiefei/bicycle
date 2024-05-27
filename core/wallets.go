@@ -113,6 +113,7 @@ func initTonHotWallet(
 	if err != nil {
 		return nil, 0, 0, err
 	}
+	log.Infof("TON hot wallet balance: %s", balance.String())
 	if balance.Cmp(config.Config.Ton.HotWalletMin) == -1 { // hot wallet balance < TonHotWalletMinimumBalance
 		return nil, 0, 0,
 			fmt.Errorf("hot wallet balance must be at least %v nanoTON", config.Config.Ton.HotWalletMin)
