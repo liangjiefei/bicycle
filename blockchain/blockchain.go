@@ -72,7 +72,7 @@ func (c *Connection) GenerateDefaultWallet(seed string, isHighload bool) (
 ) {
 	words := strings.Split(seed, " ")
 	if isHighload {
-		w, err = wallet.FromSeed(c, words, wallet.V3)
+		w, err = wallet.FromSeed(c, words, wallet.HighloadV2R2)
 	} else {
 		w, err = wallet.FromSeed(c, words, wallet.V3)
 	}
